@@ -1,10 +1,15 @@
 package com.dj.agent;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -20,12 +25,56 @@ import androidx.fragment.app.FragmentTransaction;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment;
-    String userid ="testuser";
+    private AdView mAdView;
+    private BackPressCloseHandler backPressCloseHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        backPressCloseHandler = new BackPressCloseHandler(this);
+
+        //광고 제대로 나오는지 테스트하기 위한 코드
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                // 광고가 문제 없이 로드시 출력됩니다.
+                Log.d("@@@", "onAdLoaded");
+            }
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+                // 광고 로드에 문제가 있을시 출력됩니다.
+                Log.d("@@@", "onAdFailedToLoad " + errorCode);
+            }
+
+            @Override
+
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+
+        });
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
       /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -53,7 +102,8 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            backPressCloseHandler.onBackPressed();
+          //  super.onBackPressed();
         }
     }
 
@@ -87,7 +137,6 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.menu_1) {
                 fragment = new Menu_1();
-                   fragment = new Menu_1();
                     /*Bundle bundle =new Bundle(1); //데이터 전달 방식 -> Intent와 비슷 (fragement 데이터 통신 방식)
                     bundle.putString("userid",userid);
                     fragment.setArguments(bundle);*/
@@ -98,7 +147,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.menu_4) {
             fragment = new Menu_4();
         } else if (id == R.id.menu_5) {
-
+            fragment = new Menu_5();
         } else if (id == R.id.menu_6) {
 
         }
@@ -113,5 +162,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 }

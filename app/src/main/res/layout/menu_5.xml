@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/StartPage"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.dj.agent.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+
+    tools:context=".MainActivity">
+
 
 
     <TextView
-        android:layout_width="wrap_content"
+
+        android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
-        android:text="메인화면"
-        android:textSize="100dp"/>
+
+        android:layout_above="@+id/adView"
+
+        android:text="Hello World!" />
+
+
 
     <com.google.android.gms.ads.AdView
 
@@ -30,9 +40,6 @@
 
         android:layout_alignParentBottom="true"
 
-        android:layout_gravity="bottom"
-        android:layout_marginLeft="50dp"
-
         ads:adSize="BANNER"
 
         ads:adUnitId="@string/banner_ad_unit_id_for_test">
@@ -41,4 +48,7 @@
 
     </com.google.android.gms.ads.AdView>
 
-</FrameLayout>
+
+
+</RelativeLayout>
+

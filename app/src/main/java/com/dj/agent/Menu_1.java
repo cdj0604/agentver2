@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.Calendar;
 
 import androidx.fragment.app.Fragment;
@@ -30,6 +33,11 @@ public class Menu_1 extends Fragment {
         TextView textview6 = (TextView)view.findViewById(R.id.textview6);
         TextView textview = (TextView)view.findViewById(R.id.textview);
         TextView textViewp = (TextView)view.findViewById(R.id.TextViewp);
+
+
+        AdView mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();

@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dj.agent">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_g"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_g"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="com.google.android.gms.ads.com.dj.agent"
+            android:value="ca-app-pub-9564860830680500~1323140983">
+        </meta-data>
+        <meta-data android:name = "com.google.android.gms.ads.AD_MANAGER_APP"
+                android:value = "true">
+
+        </meta-data>
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".SplashActivity"
