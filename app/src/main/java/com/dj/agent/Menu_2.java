@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import androidx.fragment.app.Fragment;
 
 /**
@@ -24,6 +27,9 @@ public class Menu_2 extends Fragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup view  = (ViewGroup)layoutInflater.inflate(R.layout.menu_2,container,false);
 
+        AdView mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         Button Button1 = (Button)view.findViewById(R.id.button);
         Button Button2 = (Button)view.findViewById(R.id.button2);
@@ -32,6 +38,8 @@ public class Menu_2 extends Fragment {
         Button sum = (Button) view.findViewById(R.id.nextbtn);
         final EditText input1 = (EditText) view.findViewById(R.id.edit01);//출근일수입력
         final TextView result = (TextView) view.findViewById(R.id.textView3);//월급보여주기
+
+
 
         Button1.setOnClickListener(new View.OnClickListener() {
             @Override

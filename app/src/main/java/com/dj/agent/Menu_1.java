@@ -24,7 +24,6 @@ import androidx.fragment.app.Fragment;
 public class Menu_1 extends Fragment {
 
 
-
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup view  = (ViewGroup)layoutInflater.inflate(R.layout.menu_1,container,false);
         TextView printstart = (TextView)view.findViewById(R.id.start) ;

@@ -1,10 +1,15 @@
 package com.dj.agent;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -14,12 +19,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Calendar;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity
@@ -31,10 +39,73 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView printstart = (TextView)findViewById(R.id.start) ;
+        TextView bm = (TextView)findViewById(R.id.bm); //소집해제날짜 출력
+        TextView ddaytext = (TextView)findViewById(R.id.textview1);
+        TextView textview6 = (TextView)findViewById(R.id.textview6);
+        TextView textview = (TextView)findViewById(R.id.textview);
+        TextView textViewp = (TextView)findViewById(R.id.TextViewp);
+
+        /* 오늘 날짜 구하기 */
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        long ttoday=calendar.getTimeInMillis()/(24*60*60*1000);
+        int r1 = (int)(long) ttoday;// 현재날짜 int로 변환
+
+        /*String userid = getArguments().getString("userid");
+        TextView tv = (TextView) view.findViewById(R.id.firstmainText);
+        tv.setText(userid);*/
+        SharedPreferences pref = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+        String start = pref.getString("startD", String.valueOf(0));
+        String Stringstart = pref.getString("startday",String.valueOf(0));
+        printstart.setText(Stringstart);//소집일날 출력
+
+        int startday = Integer.parseInt(start); //소집날 int값
+
+        String finish = pref.getString("finishD", String.valueOf(0));
+        int finishday = Integer.parseInt(finish);//소집해제날 int값
+        int dday = finishday-r1;
+        String Stringdday = Integer.toString(dday);
+        ddaytext.setText(Stringdday);
+
+        String printfinish = pref.getString("finishday", String.valueOf(0)); //출력될소집해제 날짜값 2021.2.22
+        bm.setText(printfinish);
+
+        int allday = finishday-startday;
+        String getallday = Integer.toString(allday);
+        textview6.setText(getallday); //총복무일출력
+
+        int today = r1-startday;
+        String gettoday = Integer.toString(today);
+        textview.setText(gettoday);//현재복무일수 출력
+
+        int percent = (int) ((double) today / (double) allday * 100.0);
+        String pp = Integer.toString(percent);
+        textViewp.setText(pp+"/100(%)" );
+
+
+        //---------------------프로그래스 바------------------------------
+        try {
+            // 문자열을 숫자로 변환.
+            int value = Integer.parseInt(pp);
+            // 변환된 값을 프로그레스바에 적용.
+            ProgressBar progress = (ProgressBar)findViewById(R.id.progress) ;
+            progress.setProgress(value) ;
+
+        } catch (Exception e) {
+
+        }
+
+
+        //------------------------애드몹---------------------
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+        //---------------------------------------------------
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         //광고 제대로 나오는지 테스트하기 위한 코드
@@ -75,7 +146,9 @@ public class MainActivity extends AppCompatActivity
 
         });
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+            setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
       /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -88,13 +161,16 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -147,7 +223,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.menu_4) {
             fragment = new Menu_4();
         } else if (id == R.id.menu_5) {
-            fragment = new Menu_5();
+            fragment = new Menu_1();
         } else if (id == R.id.menu_6) {
 
         }

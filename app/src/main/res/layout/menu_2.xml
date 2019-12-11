@@ -8,6 +8,13 @@
     android:background="@drawable/bg_money"
 
     >
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_g" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -154,5 +161,34 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_sad" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <com.google.android.gms.ads.AdView
 
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+            android:id="@+id/adView"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:layout_centerHorizontal="true"
+
+            android:layout_alignParentBottom="true"
+
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="50dp"
+
+            ads:adSize="BANNER"
+
+            ads:adUnitId="@string/banner_ad_unit_id_for_test">
+
+
+
+        </com.google.android.gms.ads.AdView>
+
+    </LinearLayout>
 </LinearLayout>

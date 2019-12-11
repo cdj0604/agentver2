@@ -1,12 +1,34 @@
 package com.dj.agent;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class main extends Activity {
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-    protected void onCreate(Bundle savedInstanceState) {
+/**
+ * Created by student on 2018-01-11.
+ */
+
+public class main extends Fragment {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+
+    }
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
+        ViewGroup view  = (ViewGroup)layoutInflater.inflate(R.layout.content_main,container,false);
+
+
+
+
+        return view;
     }
 }
