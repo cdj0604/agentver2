@@ -5,27 +5,46 @@
 
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/menu_2"
-            android:icon="@drawable/cal_on"
-            android:title="월급계산하기" />
-        <item
-            android:id="@+id/menu_3"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="정보게시판" />
+        <item android:title="MAIN">
+            <menu>
+                <item
+                    android:id="@+id/menu_1"
+                    android:icon="@drawable/test"
+                    android:title="홈으로" />
+            </menu>
+        </item>
+        <item android:title="FUNCTION">
+            <menu>
+                <item
+                    android:id="@+id/menu_2"
+                    android:icon="@drawable/test"
+                    android:title="월급계산하기" />
 
-        <item
-            android:id="@+id/menu_1"
-            android:icon="@drawable/home_on"
-            android:title="홈으로 가기" />
+                <item
+                    android:id="@+id/menu_3"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="정보게시판" />
+
+            </menu>
+        </item>
+
     </group>
-
-    <item android:title="더보기">
+    <item android:title="MORE">
         <menu>
             <item
                 android:id="@+id/menu_4"
-                android:icon="@drawable/reset_on"
+                android:icon="@drawable/test"
                 android:title="재설정하기" />
+
+            <item
+                android:id="@+id/menu_5"
+                android:icon="@drawable/test"
+                android:title="평가 하러가기" />
+
+            <item
+                android:id="@+id/menu_6"
+                android:icon="@drawable/test"
+                android:title="피드백" />
         </menu>
     </item>
 

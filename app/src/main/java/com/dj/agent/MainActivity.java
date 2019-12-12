@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -260,31 +261,13 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.menu_3) {
             fragment = new Menu_3();
         } else if (id == R.id.menu_4) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("초기화")        // 제목 설정
-                    .setMessage("설정을 초기화 하시겠습니까?")        // 메세지 설정
-                    .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
-                    .setPositiveButton("확인", new DialogInterface.OnClickListener(){
-
-                        // 확인 버튼 클릭시 설정
-
-                        public void onClick(DialogInterface dialog, int whichButton){
-                            asd();
-                        }
-                    })
-                    .setNegativeButton("취소", new DialogInterface.OnClickListener(){
-                        // 취소 버튼 클릭시 설정
-                        public void onClick(DialogInterface dialog, int whichButton){
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog dialog = builder.create();    // 알림창 객체 생성
-            dialog.show();
-        } /*else if (id == R.id.menu_5) {
-            fragment = new Menu_1();
+           reset();
+        } else if (id == R.id.menu_5) {
+            Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.dj.agent"));
+            startActivity(myIntent);
         } else if (id == R.id.menu_6) {
-
-        }*/
+            send();
+        }
 
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -301,5 +284,37 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this,startday.class);
         startActivity(intent);
         this.finish();
+    }
+    public void send(){
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.setType("plain/text");
+        // email setting 배열로 해놔서 복수 발송 가능
+        String[] address = {"cdj0604@icloud.com"};
+        email.putExtra(Intent.EXTRA_EMAIL, address);
+        email.putExtra(Intent.EXTRA_SUBJECT,"[공붕이] 문의사항입니다 ");
+        //  email.putExtra(Intent.EXTRA_TEXT,"보낼 email 내용을 미리 적어 놓을 수 있습니다.\n");
+        startActivity(email);
+    }
+    public void reset(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("초기화")        // 제목 설정
+                .setMessage("설정을 초기화 하시겠습니까?")        // 메세지 설정
+                .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
+                .setPositiveButton("확인", new DialogInterface.OnClickListener(){
+
+                    // 확인 버튼 클릭시 설정
+
+                    public void onClick(DialogInterface dialog, int whichButton){
+                        asd();
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener(){
+                    // 취소 버튼 클릭시 설정
+                    public void onClick(DialogInterface dialog, int whichButton){
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog dialog = builder.create();    // 알림창 객체 생성
+        dialog.show();
     }
 }

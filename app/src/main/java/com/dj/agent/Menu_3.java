@@ -41,7 +41,7 @@ public class Menu_3 extends Fragment {
         mInterstitialAd.setAdListener(new AdListener(){
             @Override
             public void onAdLoaded() {
-                Toast.makeText(getContext(),"감사합니다",Toast.LENGTH_LONG).show();
+
             }
 
             @Override
@@ -51,7 +51,7 @@ public class Menu_3 extends Fragment {
 
             @Override
             public void onAdClosed() {
-
+                Toast.makeText(getContext(),"감사합니다",Toast.LENGTH_LONG).show();
             }
 
 
