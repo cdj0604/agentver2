@@ -18,26 +18,11 @@ public class finishday extends Activity {
     Button nextbtn1;
     Button btnDate;
 
-    int tYear;
-    int tMonth;
-    int tDay;
-
-    int ddDay = 0;
-    int ddMonth = 0;
-    int ddYear = 0;
 
     int dDay = 0;
     int dMonth = 0;
     int dYear = 0;
 
-    long dday;
-    long today;
-    long result;
-    long start;
-    long result1;
-
-    int resultValue = 0;
-    int resultValue1 = 0;
 
     Calendar calendar2;
 
@@ -102,6 +87,8 @@ public class finishday extends Activity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("finishD",finishD); //startD = 입소날 선택날 상수값
         editor.putString("finishday",date);//입소날 출력값 2019.3.29
+        int finishLevel = dYear*12-dMonth+1 ;
+        editor.putInt("finishLevel",finishLevel);
         editor.commit();
     }
     }

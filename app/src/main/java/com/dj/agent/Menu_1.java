@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,15 +25,18 @@ import androidx.fragment.app.Fragment;
 public class Menu_1 extends Fragment {
 
 
+    private int Year;
+    private int Month;
+
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
-        ViewGroup view  = (ViewGroup)layoutInflater.inflate(R.layout.menu_1,container,false);
+        ViewGroup view  = (ViewGroup)layoutInflater.inflate(R.layout.content_main,container,false);
         TextView printstart = (TextView)view.findViewById(R.id.start) ;
         TextView bm = (TextView)view.findViewById(R.id.bm); //소집해제날짜 출력
         TextView ddaytext = (TextView)view.findViewById(R.id.textview1);
         TextView textview6 = (TextView)view.findViewById(R.id.textview6);
         TextView textview = (TextView)view.findViewById(R.id.textview);
         TextView textViewp = (TextView)view.findViewById(R.id.TextViewp);
-
+        TextView testtext = (TextView)view.findViewById(R.id.testtext);
 
         AdView mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -44,8 +48,11 @@ public class Menu_1 extends Fragment {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
+        Year = calendar.get(Calendar.YEAR);
+        Month = calendar.get(Calendar.MONTH);
         long ttoday=calendar.getTimeInMillis()/(24*60*60*1000);
         int r1 = (int)(long) ttoday;// 현재날짜 int로 변환
+
 
         /*String userid = getArguments().getString("userid");
         TextView tv = (TextView) view.findViewById(R.id.firstmainText);
@@ -55,6 +62,27 @@ public class Menu_1 extends Fragment {
         String Stringstart = pref.getString("startday",String.valueOf(0));
         printstart.setText(Stringstart);//소집일날 출력
 
+        int startLevel = pref.getInt("startLevel",0);//입소날 년,월 가져오기
+        int todayLevel = Year*12+Month-1; //오늘 년.월가져오기
+        int a = todayLevel-startLevel;
+        int d = 0;
+        Log.d("계급/달수차이", String.valueOf(a));
+        if (a<3) {
+            testtext.setText("이등병");
+            d = 306100;
+        }
+        else if (a < 10){
+            testtext.setText("일등병");
+            d = 331300;
+        }
+        else if (a < 18){
+            testtext.setText("상등병");
+            d = 366200;
+        }
+        else {
+            testtext.setText("병장");
+            d = 405700;
+        }
         int startday = Integer.parseInt(start); //소집날 int값
 
         String finish = pref.getString("finishD", String.valueOf(0));

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -26,20 +27,21 @@ public class Menu_3 extends Fragment {
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup view  = (ViewGroup)layoutInflater.inflate(R.layout.menu_3,container,false);
-        AdView mAdView = view.findViewById(R.id.adView);
+        /*AdView mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);*/
 
-        //구글애드몹
         MobileAds.initialize(getActivity(), "@string/admob_app_id");
         mInterstitialAd = new InterstitialAd(getActivity());
-        mInterstitialAd.setAdUnitId("@string/j_ad_unit_id_for_test");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
 
         mInterstitialAd.setAdListener(new AdListener(){
             @Override
             public void onAdLoaded() {
-
+                Toast.makeText(getContext(),"감사합니다",Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -64,17 +66,20 @@ public class Menu_3 extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), com.dj.agent.infor1.class);
                 startActivity(i);
-                //애드몹
-                if (mInterstitialAd.isLoaded()){
-                    mInterstitialAd.show();
-                }
-                else{
-                    Log.d("전면광고","광고로드실패");
-                }
-
+                mInterstitialAd.setAdListener(new AdListener() {
+                    public void onAdLoaded(){
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+                            Log.d("asd", "The interstitial wasn't loaded yet.");
+                        }
+                    }
+                });
             }
         });
 
         return view;
     }
+
+
 }

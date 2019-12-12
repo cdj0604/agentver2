@@ -79,6 +79,8 @@ public class startday extends Activity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("startD",stadrD); //startD = 입소날 선택날 상수값
         editor.putString("startday",date);//입소날 출력값 2019.3.29
+        int startLevel = ddYear*12+ddMonth-1;
+        editor.putInt("startLevel",startLevel);
         editor.commit();
     }
     }

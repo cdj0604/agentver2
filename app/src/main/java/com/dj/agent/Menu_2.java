@@ -31,52 +31,28 @@ public class Menu_2 extends Fragment {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        Button Button1 = (Button)view.findViewById(R.id.button);
-        Button Button2 = (Button)view.findViewById(R.id.button2);
-        Button Button3 = (Button)view.findViewById(R.id.button3);
-        Button Button4 = (Button)view.findViewById(R.id.button4);
         Button sum = (Button) view.findViewById(R.id.nextbtn);
+        TextView testeat = (TextView)view.findViewById(R.id.eat);
+        TextView testbus = (TextView)view.findViewById(R.id.bus);
+        TextView testlevel = (TextView)view.findViewById(R.id.level);
         final EditText input1 = (EditText) view.findViewById(R.id.edit01);//출근일수입력
         final TextView result = (TextView) view.findViewById(R.id.textView3);//월급보여주기
 
-
-
-        Button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d=306130;
-            }
-        });
-        Button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d=306130;
-            }
-        });
-
-        Button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d=306130;
-            }
-        });
-
-        Button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d=306130;
-            }
-        });
-
+        final SharedPreferences pref = getActivity().getSharedPreferences("PREFERENCE", Activity.MODE_PRIVATE);
+        final String eat = pref.getString("insert_eat", "");
+        final String bus = pref.getString("insert_bus", "");
+        String level= pref.getString("Level","");
+        testeat.setText(eat+"원");
+        testbus.setText(bus+"원");
+        testlevel.setText(level);
         sum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences pref = getActivity().getSharedPreferences("PREFERENCE", Activity.MODE_PRIVATE);
-                String eat = pref.getString("insert_eat", "");
-                String bus = pref.getString("insert_bus", "");
+
+                int d = pref.getInt("money",0);
                 String getinput1 = input1.getText().toString();//출근일수입력
                 input1.setSelection(input1.length()); //뒤부터입력
-                if (getinput1.getBytes().length <= 0 || d==0) {
+                if (getinput1.getBytes().length <= 0) {
                     Toast.makeText(getActivity().getApplicationContext(), "계급과 출근일수를 정확히 입력해주세요.", Toast.LENGTH_SHORT).show();
 
                 } else {

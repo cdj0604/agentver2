@@ -1,6 +1,8 @@
 package com.dj.agent;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +24,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.Calendar;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -35,6 +38,8 @@ public class MainActivity extends AppCompatActivity
     Fragment fragment;
     private AdView mAdView;
     private BackPressCloseHandler backPressCloseHandler;
+    private int Year , Month;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,13 +51,15 @@ public class MainActivity extends AppCompatActivity
         TextView textview6 = (TextView)findViewById(R.id.textview6);
         TextView textview = (TextView)findViewById(R.id.textview);
         TextView textViewp = (TextView)findViewById(R.id.TextViewp);
-
+        TextView testtext = (TextView)findViewById(R.id.testtext);
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
+        Year = calendar.get(Calendar.YEAR);
+        Month = calendar.get(Calendar.MONTH);
         long ttoday=calendar.getTimeInMillis()/(24*60*60*1000);
         int r1 = (int)(long) ttoday;// 현재날짜 int로 변환
 
@@ -61,9 +68,41 @@ public class MainActivity extends AppCompatActivity
         tv.setText(userid);*/
         SharedPreferences pref = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         String start = pref.getString("startD", String.valueOf(0));
+        SharedPreferences.Editor editor = pref.edit();
         String Stringstart = pref.getString("startday",String.valueOf(0));
         printstart.setText(Stringstart);//소집일날 출력
+        int startLevel = pref.getInt("startLevel",0);//입소날 년,월 가져오기
+        int todayLevel = Year*12+Month-1; //오늘 년.월가져오기
+        int a = todayLevel-startLevel;
+        int d = 0;
+        String c = null;
+        Log.d("계급/달수차이", String.valueOf(a));
+        if (a<3) {
+            testtext.setText("이등병");
+            d = 306100;
+            c = "이등병";
+        }
+        else if (a < 10){
+            testtext.setText("일등병");
+            d = 331300;
+            c = "일등병";
 
+        }
+        else if (a < 18){
+            testtext.setText("상등병");
+            d = 366200;
+            c = "상등병";
+
+        }
+        else if(a>=18){
+            testtext.setText("병장");
+            d = 405700;
+            c = "병장";
+
+        }
+        editor.putInt("money", d);
+        editor.putString("Level",c);
+        editor.commit();
         int startday = Integer.parseInt(start); //소집날 int값
 
         String finish = pref.getString("finishD", String.valueOf(0));
@@ -221,12 +260,31 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.menu_3) {
             fragment = new Menu_3();
         } else if (id == R.id.menu_4) {
-            fragment = new Menu_4();
-        } else if (id == R.id.menu_5) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("초기화")        // 제목 설정
+                    .setMessage("설정을 초기화 하시겠습니까?")        // 메세지 설정
+                    .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
+                    .setPositiveButton("확인", new DialogInterface.OnClickListener(){
+
+                        // 확인 버튼 클릭시 설정
+
+                        public void onClick(DialogInterface dialog, int whichButton){
+                            asd();
+                        }
+                    })
+                    .setNegativeButton("취소", new DialogInterface.OnClickListener(){
+                        // 취소 버튼 클릭시 설정
+                        public void onClick(DialogInterface dialog, int whichButton){
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog dialog = builder.create();    // 알림창 객체 생성
+            dialog.show();
+        } /*else if (id == R.id.menu_5) {
             fragment = new Menu_1();
         } else if (id == R.id.menu_6) {
 
-        }
+        }*/
 
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -239,5 +297,9 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
+    public void asd(){
+        Intent intent = new Intent(this,startday.class);
+        startActivity(intent);
+        this.finish();
+    }
 }
