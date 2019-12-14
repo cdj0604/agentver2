@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,7 +23,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ImageView menu1_1 = (ImageView)findViewById(R.id.imageView);
         TextView printstart = (TextView)findViewById(R.id.start) ;
         TextView bm = (TextView)findViewById(R.id.bm); //소집해제날짜 출력
         TextView ddaytext = (TextView)findViewById(R.id.textview1);
@@ -64,6 +68,19 @@ public class MainActivity extends AppCompatActivity
         long ttoday=calendar.getTimeInMillis()/(24*60*60*1000);
         int r1 = (int)(long) ttoday;// 현재날짜 int로 변환
 
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmm");
+        String formatDate = simpleDateFormat.format(date);
+        int fdate = Integer.parseInt(formatDate);
+        Log.d("현재시간", String.valueOf(fdate));
+        if (fdate > 0600 && fdate <1059){
+            menu1_1.setImageResource(R.drawable.menu1_1);
+        }
+        else if (fdate > 1100 && fdate <1759){
+            menu1_1.setImageResource(R.drawable.menu1_3);
+        }
+        else menu1_1.setImageResource(R.drawable.menu1_2);
         /*String userid = getArguments().getString("userid");
         TextView tv = (TextView) view.findViewById(R.id.firstmainText);
         tv.setText(userid);*/
@@ -79,26 +96,26 @@ public class MainActivity extends AppCompatActivity
         String c = null;
         Log.d("계급/달수차이", String.valueOf(a));
         if (a<3) {
-            testtext.setText("이등병");
+            testtext.setText("이병");
             d = 306100;
-            c = "이등병";
+            c = "306100";
         }
         else if (a < 10){
-            testtext.setText("일등병");
+            testtext.setText("일병");
             d = 331300;
-            c = "일등병";
+            c = "331300";
 
         }
         else if (a < 18){
-            testtext.setText("상등병");
+            testtext.setText("상병");
             d = 366200;
-            c = "상등병";
+            c = "366200";
 
         }
         else if(a>=18){
             testtext.setText("병장");
             d = 405700;
-            c = "병장";
+            c = "405700";
 
         }
         editor.putInt("money", d);
@@ -207,6 +224,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
     }
 
 

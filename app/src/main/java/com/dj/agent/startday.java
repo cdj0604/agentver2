@@ -73,6 +73,7 @@ public class startday extends Activity {
     void UpdateDday() {
         long start = calendar3.getTimeInMillis() / (24 * 60 * 60 * 1000);
         String stadrD = String.valueOf(start);
+       // textDday1.setVisibility(View.VISIBLE); //버튼클릭시 월급보여주기
         textDday1.setText(String.format("%d.%d.%d", ddYear, ddMonth+1, ddDay));  //선택 날짜 출력
         String date = String.format("%d.%d.%d", ddYear, ddMonth+1, ddDay); //선택날짜 스트링값 변환
         SharedPreferences pref = getSharedPreferences("PREFERENCE", Activity.MODE_PRIVATE);
@@ -82,5 +83,6 @@ public class startday extends Activity {
         int startLevel = ddYear*12+ddMonth-1;
         editor.putInt("startLevel",startLevel);
         editor.commit();
+
     }
     }

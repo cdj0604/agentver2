@@ -10,7 +10,7 @@
         <clip>
             <shape>
                 <corners android:radius="6dp" />
-                <solid android:color="#5eab5e" /> <!--그래프 색칠된 부분ㄴ -->
+                <solid android:color="#2b2563" /> <!--그래프 색칠된 부분ㄴ -->
             </shape>
         </clip>
     </item>

@@ -5,14 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_home"
+    android:background="@drawable/bg"
     >
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/menu" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_g" />
+        app:srcCompat="@drawable/menu1_title" />
 
     <LinearLayout
         android:layout_width="300dp"
@@ -90,7 +99,7 @@
             android:layout_marginLeft="14dp"
             android:text="전체복무"
             android:gravity="center_horizontal"
-            android:textColor="#5eab5e"
+            android:textColor="#FFBF5E"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             tools:layout_editor_absoluteX="162dp"
             tools:layout_editor_absoluteY="312dp" />
@@ -127,7 +136,7 @@
             android:text="복무일"
             android:gravity="center_horizontal"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#5eab5e"
+            android:textColor="#FFBF5E"
             tools:layout_editor_absoluteX="162dp"
             tools:layout_editor_absoluteY="312dp" />
 
@@ -163,7 +172,7 @@
             android:layout_marginLeft="14dp"
             android:text="디데이"
             android:gravity="center_horizontal"
-            android:textColor="#5eab5e"
+            android:textColor="#FFBF5E"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             tools:layout_editor_absoluteX="162dp"
             tools:layout_editor_absoluteY="312dp" />

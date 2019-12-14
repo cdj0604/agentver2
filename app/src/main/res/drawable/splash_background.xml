@@ -9,7 +9,7 @@
     <item>
 
         <bitmap
-            android:src="@drawable/logo_for_splash"/>
+            android:src="@drawable/bg"/>
     </item>
 
 </layer-list>

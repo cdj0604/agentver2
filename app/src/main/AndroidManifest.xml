@@ -41,6 +41,10 @@
         </activity>
         <activity android:name=".infor2">
         </activity>
+        <activity android:name=".infor3">
+        </activity>
+        <activity android:name=".infor4">
+        </activity>
     </application>
 
 </manifest>

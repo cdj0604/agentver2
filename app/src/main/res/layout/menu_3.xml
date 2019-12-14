@@ -4,25 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_setting">
+    android:background="@drawable/bg">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_g" />
+        android:id="@+id/imageView6"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/menu" />
 
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="정보게시판"
-        android:textSize="80dp"/>
-</LinearLayout>
+        app:srcCompat="@drawable/main_title" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,28 +34,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="규정집" />
+            android:text="연/병가" />
 
         <Button
             android:id="@+id/infor2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="자주묻는 질문" />
+            android:text="공식규정집 바로가기" />
 
         <Button
             android:id="@+id/infor3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="꿀팁" />
+            android:text="혐오업무거부" />
 
         <Button
             android:id="@+id/infor4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="기타등등넣을것들" />
+            android:text="신문고사용법" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

@@ -5,125 +5,169 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_money"
-
+    android:background="@drawable/bg"
     >
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_g" />
+        android:id="@+id/imageView6"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/menu" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/menu2_title" />
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp">
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit01"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:background="@drawable/printday"
+            android:layout_marginLeft="140dp"
+            android:inputType="number"
+            android:maxLength="3"
+            android:hint="출근일수"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
         <TextView
-        android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="일"
+            android:textSize="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"></TextView>
+
+        <Button
+            android:id="@+id/nextbtn"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:background="@drawable/sum_btn"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
+            android:onClick="onClick" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="선택한 식비">
-    </TextView>
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_marginLeft="50dp"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/money_3" />
 
         <TextView
             android:id="@+id/eat"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="50dp"
-            android:text="얼마"></TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="선택한 교통비">
-        </TextView>
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:text="aaa"
+            android:textSize="60px"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="312dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="얼마"
-            android:id="@+id/bus"
-            android:layout_marginLeft="50dp">
-        </TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="현재계급 ">
-        </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="얼마"
-            android:id="@+id/level"
-            android:layout_marginLeft="50dp">
-        </TextView>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="근무 일수">
+        android:orientation="horizontal">
 
-        </TextView>
-        <EditText
-            android:id="@+id/edit01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:hint="근무일수"
-            android:inputType="number"
-            android:maxLength="3"
-            android:textSize="15dp"
-            android:textColor="#000000" />
+
+        <ImageView
+            android:layout_marginLeft="50dp"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/money_4" />
+
+        <TextView
+            android:id="@+id/bus"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:text="aaa"
+            android:textSize="60px"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="312dp" />
+
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/nextbtn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="50dp"
-        android:onClick="onClick"
-        android:background="@drawable/sum_btn"
-        android:layout_gravity="right"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_marginLeft="50dp"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/money_1" />
+
+        <TextView
+            android:id="@+id/level"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:text="aaa"
+            android:textSize="60px"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="312dp" />
+
+
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center">
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_marginLeft="50dp"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/money_2" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="150dp"
-            android:layout_height="20dp"
-            android:text="~~~원"
-            android:background="@drawable/blackline"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:visibility="invisible" />
+            android:textSize="60px"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="312dp" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_sad" />
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

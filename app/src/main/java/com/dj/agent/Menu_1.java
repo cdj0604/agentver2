@@ -8,13 +8,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import androidx.fragment.app.Fragment;
 
@@ -37,10 +40,25 @@ public class Menu_1 extends Fragment {
         TextView textview = (TextView)view.findViewById(R.id.textview);
         TextView textViewp = (TextView)view.findViewById(R.id.TextViewp);
         TextView testtext = (TextView)view.findViewById(R.id.testtext);
+        ImageView menu1_1 = (ImageView)view.findViewById(R.id.imageView);
 
         AdView mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmm");
+        String formatDate = simpleDateFormat.format(date);
+        int fdate = Integer.parseInt(formatDate);
+        Log.d("현재시간", String.valueOf(fdate));
+        if (fdate > 0600 && fdate <1059){
+            menu1_1.setImageResource(R.drawable.menu1_1);
+        }
+        else if (fdate > 1100 && fdate <1759){
+            menu1_1.setImageResource(R.drawable.menu1_3);
+        }
+        else menu1_1.setImageResource(R.drawable.menu1_2);
 
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();

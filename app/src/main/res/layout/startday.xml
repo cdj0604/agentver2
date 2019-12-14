@@ -25,7 +25,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <Button
@@ -42,31 +42,33 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="50dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginLeft="70dp"
                 android:text="선택한 입소날짜  :   "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/textDday1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="38dp"
+                android:background="@drawable/datebg"
+                android:gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textSize="20sp" />
-        </LinearLayout>
+                android:textSize="20sp"
+                tools:visibility="invisible" />
+</LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <Button

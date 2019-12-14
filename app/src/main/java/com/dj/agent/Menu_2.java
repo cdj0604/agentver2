@@ -4,22 +4,24 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Binder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import androidx.fragment.app.Fragment;
 
-/**
- * Created by student on 2018-01-11.
- */
 
 public class Menu_2 extends Fragment {
 
@@ -30,7 +32,7 @@ public class Menu_2 extends Fragment {
         AdView mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
+        ImageView imageView = (ImageView)view.findViewById(R.id.imageView5);
         Button sum = (Button) view.findViewById(R.id.nextbtn);
         TextView testeat = (TextView)view.findViewById(R.id.eat);
         TextView testbus = (TextView)view.findViewById(R.id.bus);
@@ -44,7 +46,23 @@ public class Menu_2 extends Fragment {
         String level= pref.getString("Level","");
         testeat.setText(eat+"원");
         testbus.setText(bus+"원");
-        testlevel.setText(level);
+        testlevel.setText(level+"원");
+
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmm");
+        String formatDate = simpleDateFormat.format(date);
+        int fdate = Integer.parseInt(formatDate);
+        Log.d("현재시간", String.valueOf(fdate));
+        if (fdate > 0600 && fdate <1059){
+            imageView.setImageResource(R.drawable.menu2_1);
+        }
+        else if (fdate > 1100 && fdate <1759){
+            imageView.setImageResource(R.drawable.menu2_3);
+        }
+        else imageView.setImageResource(R.drawable.menu2_2);
+
+
         sum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +82,7 @@ public class Menu_2 extends Fragment {
                     String stringsum = Integer.toString(sum);
 
                     result.setVisibility(View.VISIBLE); //버튼클릭시 월급보여주기
-                    result.setText("  이번달월급 "+stringsum + " 원");
+                    result.setText(stringsum + " 원");
 
 
                 }

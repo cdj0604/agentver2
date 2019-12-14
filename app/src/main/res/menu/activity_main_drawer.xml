@@ -9,20 +9,21 @@
             <menu>
                 <item
                     android:id="@+id/menu_1"
-                    android:icon="@drawable/test"
-                    android:title="홈으로" />
+                    android:icon="@drawable/menu1"
+                    android:title="홈으로"
+                    ></item>
             </menu>
         </item>
         <item android:title="FUNCTION">
             <menu>
                 <item
                     android:id="@+id/menu_2"
-                    android:icon="@drawable/test"
+                    android:icon="@drawable/menu2"
                     android:title="월급계산하기" />
 
                 <item
                     android:id="@+id/menu_3"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:icon="@drawable/menu3"
                     android:title="정보게시판" />
 
             </menu>
@@ -33,17 +34,17 @@
         <menu>
             <item
                 android:id="@+id/menu_4"
-                android:icon="@drawable/test"
+                android:icon="@drawable/menu4"
                 android:title="재설정하기" />
 
             <item
                 android:id="@+id/menu_5"
-                android:icon="@drawable/test"
+                android:icon="@drawable/menu5"
                 android:title="평가 하러가기" />
 
             <item
                 android:id="@+id/menu_6"
-                android:icon="@drawable/test"
+                android:icon="@drawable/menu6"
                 android:title="피드백" />
         </menu>
     </item>
