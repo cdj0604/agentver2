@@ -72,7 +72,6 @@ public class Menu_2 extends Fragment {
                 input1.setSelection(input1.length()); //뒤부터입력
                 if (getinput1.getBytes().length <= 0) {
                     Toast.makeText(getActivity().getApplicationContext(), "계급과 출근일수를 정확히 입력해주세요.", Toast.LENGTH_SHORT).show();
-
                 } else {
                     int intbus = Integer.parseInt(bus);
                     int inteat = Integer.parseInt(eat);

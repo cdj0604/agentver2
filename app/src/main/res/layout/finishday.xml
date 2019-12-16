@@ -17,7 +17,8 @@
             android:layout_marginTop="150dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2.소집해제 날짜 를 선택해주세요"
+            android:fontFamily="@font/fff"
+            android:text="2.소집해제 날짜 입력"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -32,7 +33,7 @@
             android:id="@+id/btnDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="입소날짜 설정"
+            android:text="소집해제 날짜 설정"
             android:layout_gravity="center"
             android:textSize="15sp"
             app:backgroundTint="@android:color/holo_blue_light"
@@ -50,14 +51,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginLeft="70dp"
-                android:text="선택한 입소날짜  :   "
+                android:text="선택한 소집해제날짜  :   "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <TextView
                 android:id="@+id/textDday"
                 android:layout_width="120dp"
                 android:layout_height="38dp"
-                android:background="@drawable/datebg"
+                android:background="@drawable/printday"
                 android:gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20sp" />

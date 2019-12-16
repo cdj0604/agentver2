@@ -7,7 +7,7 @@
     android:background="@drawable/bg">
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageView1"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="5dp"
@@ -22,40 +22,57 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/main_title" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/infor1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/infor5"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:text="연/병가" />
+            android:layout_gravity="center"
+            android:background="@drawable/infor5"/>
+
+        <Button
+            android:id="@+id/infor1"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/infor1" />
 
         <Button
             android:id="@+id/infor2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@drawable/infor2"
+            android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:text="공식규정집 바로가기" />
+           />
 
         <Button
             android:id="@+id/infor3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:text="혐오업무거부" />
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/infor3" />
 
         <Button
             android:id="@+id/infor4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:text="신문고사용법" />
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/infor4"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,7 +97,7 @@
 
             ads:adSize="BANNER"
 
-            ads:adUnitId="@string/banner_ad_unit_id_for_test">
+            ads:adUnitId="ca-app-pub-9564860830680500/7982589118">
 
 
 

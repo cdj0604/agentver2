@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="신문고 사용법"
-        android:textSize="50dp"/>
+        android:text="신문고 규정"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:text="우선 신문고에 대한 규정은 따로 정해져 있는 것은 없다. 다만 어떠한 문제가 발생했을 때 해당 문제를 가장 직접적으로 해결해줄 수 있는 기관에 직접적으로 문의를 할 수 있다는 것이 장점으로 작용한다. 예를 들어, 본인이 근무하고 있는 기관의 공무원이 본인에게 어떠한 행동을 했고, 해당 행위에 대한 징계사유가 있는 경우라면 직접적으로 신문고에 문의하여 담당자에게 직접적으로 징계를 내리거나 권고를 줄 수 있으며, 그 정도가 심할 경우 근무지 재지정까지 연결시킬 수 있다.
+
+\n \n사회복무요원의 신문고는 증거자료가 있을 때 더 강하게 작용하는데, 대표적으로 담당자의 폭언이 담긴 녹취록이나 과도업무나 혐오업무를 강요하는 문자, 카톡내용 캡쳐 등이 활용되곤 한다.(본인목소리가 포함된 몰래녹취는 증거로 채택될수있다)"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 </LinearLayout>

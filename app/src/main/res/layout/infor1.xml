@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="연/병가게시판"
-        android:textSize="50dp"/>
+        android:text="연/병가 관련"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="331dp"
+        android:layout_height="333dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:text="연가는 오전 또는 오후의 반일단위로 허가할 수 있으며, 반일연가는 14:00시를 기준으로 오전·오후로 구분하며, 반일연가 2회는 연가 1일로 계산한다.\n질병이나 부상 외의 사유로 인한 지참·조퇴 및 외출은 구분없이 누계 8시간을 연가 1일로 계산하여 연가일수 차감
+        \n \n복무기관에서 중요한 행사날 같은 불가피한경우에는 복무기관장이 연가를 거부할수있다.
+\n \n병가는 3일이내의 경우 처방전,진료확인서,영수증 등이 필요하고, 4일이상의 경우 진단서가 필요하다.
+\n병가는 어떠한 사유에서도 거절할수없다.(당일병가가능)\n국가건강검진 의 경우 공가로 취급된다."
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="15dp" />
 </LinearLayout>

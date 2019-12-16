@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
     private BackPressCloseHandler backPressCloseHandler;
     private int Year , Month;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity
         TextView textview = (TextView)findViewById(R.id.textview);
         TextView textViewp = (TextView)findViewById(R.id.TextViewp);
         TextView testtext = (TextView)findViewById(R.id.testtext);
+
+
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -242,23 +245,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //오른쪽위 설정창 부분
-      /*  if (id == R.id.action_settings) {
-            return true;
-        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -271,9 +262,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.menu_1) {
                 fragment = new Menu_1();
-                    /*Bundle bundle =new Bundle(1); //데이터 전달 방식 -> Intent와 비슷 (fragement 데이터 통신 방식)
-                    bundle.putString("userid",userid);
-                    fragment.setArguments(bundle);*/
+
         } else if (id == R.id.menu_2) {
                 fragment = new Menu_2();
         } else if (id == R.id.menu_3) {

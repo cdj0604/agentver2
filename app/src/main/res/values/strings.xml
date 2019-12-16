@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">공붕이</string>
+    <string name="app_name">공익매니저(SSAMS)</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">More Settion From Ysj</string>
 
 
-    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_app_id">ca-app-pub-9564860830680500~1323140983</string>
     <string name="banner_ad_unit_id">ca-app-pub-9564860830680500/7982589118</string>
     <string name="banner_ad_unit_id_for_test">ca-app-pub-3940256099942544/6300978111</string>
 
@@ -14,3 +14,4 @@
     <string name="j_ad_unit_id">ca-app-pub-9564860830680500/7982589118</string>
     <string name="j_ad_unit_id_for_test">ca-app-pub-3940256099942544/1033173712</string>
 </resources>
+

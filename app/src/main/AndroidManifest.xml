@@ -12,11 +12,11 @@
         android:theme="@style/AppTheme.NoActionBar">
         <meta-data
             android:name="com.google.android.gms.ads.com.dj.agent"
-            android:value="ca-app-pub-9564860830680500~1323140983">
+            android:value="ca-app-pub-9564860830680500~1323140983"
+            >
         </meta-data>
         <meta-data android:name = "com.google.android.gms.ads.AD_MANAGER_APP"
                 android:value = "true">
-
         </meta-data>
         <activity android:name=".MainActivity">
 

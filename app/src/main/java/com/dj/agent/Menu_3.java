@@ -1,5 +1,6 @@
 package com.dj.agent;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import org.w3c.dom.Text;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 
@@ -32,13 +34,15 @@ public class Menu_3 extends Fragment {
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup view  = (ViewGroup)layoutInflater.inflate(R.layout.menu_3,container,false);
-        /*AdView mAdView = view.findViewById(R.id.adView);
+
+       AdView mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
+        mAdView.loadAd(adRequest);
         ImageView imageView2 = (ImageView)view.findViewById(R.id.imageView2);
+
         MobileAds.initialize(getActivity(), "@string/admob_app_id");
         mInterstitialAd = new InterstitialAd(getActivity());
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("@string/j_ad_unit_id");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         long now = System.currentTimeMillis();
@@ -59,7 +63,11 @@ public class Menu_3 extends Fragment {
         mInterstitialAd.setAdListener(new AdListener(){
             @Override
             public void onAdLoaded() {
-
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("asd", "The interstitial wasn't loaded yet.");
+                }
             }
 
             @Override
@@ -74,15 +82,70 @@ public class Menu_3 extends Fragment {
 
 
         });
-       Button infor1 = view.findViewById(R.id.infor1);
+        Button infor1 = view.findViewById(R.id.infor1);
         Button infor2 =view.findViewById(R.id.infor2);
         Button infor3  =view.findViewById(R.id.infor3);
         Button infor4  =view.findViewById(R.id.infor4);
+        Button infor5  =view.findViewById(R.id.infor5);
+
+        infor5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("월급,진급일 정보")        // 제목 설정
+                        .setMessage("2019년도 군인월급 \n 이병 : 306,100 원\n 일병 : 331,300원\n 상병 : 366,200원\n 병장 : 405,700 원\n \n2020년도 군인 월급\n 이병 : 408,800 원\n 일병 : 441,600 원\n 상병 : 488,100 원\n 병장 : 540,800원 \n \n     진급표\n이병 : 소집일~3개월\n일병 : 4개월 ~ 10개월\n상병 : 11개월 ~ 17개월\n병장 : 18개월 ~")        // 메세지 설정
+                        .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
+                        .setNegativeButton("확인", new DialogInterface.OnClickListener(){
+                            // 취소 버튼 클릭시 설정
+                            public void onClick(DialogInterface dialog, int whichButton){
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog dialog = builder.create();    // 알림창 객체 생성
+                dialog.show();
+            }
+        });
 
         infor1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mInterstitialAd.setAdListener(new AdListener() {
+                    public void onAdLoaded(){
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+                            Log.d("asd", "The interstitial wasn't loaded yet.");
+                        }
+                    }
+                });
                 Intent i = new Intent(getContext(), com.dj.agent.infor1.class);
+                startActivity(i);
+
+            }
+        });
+
+        infor2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mInterstitialAd.setAdListener(new AdListener() {
+                    public void onAdLoaded(){
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+                            Log.d("asd", "The interstitial wasn't loaded yet.");
+                        }
+                    }
+                });
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%82%AC%ED%9A%8C%EB%B3%B5%EB%AC%B4%EC%9A%94%EC%9B%90%EB%B3%B5%EB%AC%B4%EA%B4%80%EB%A6%AC%EA%B7%9C%EC%A0%95"));
+                startActivity(myIntent);
+
+            }
+        });
+
+        infor3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), com.dj.agent.infor3.class);
                 startActivity(i);
                 mInterstitialAd.setAdListener(new AdListener() {
                     public void onAdLoaded(){
@@ -96,27 +159,20 @@ public class Menu_3 extends Fragment {
             }
         });
 
-        infor2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%82%AC%ED%9A%8C%EB%B3%B5%EB%AC%B4%EC%9A%94%EC%9B%90%EB%B3%B5%EB%AC%B4%EA%B4%80%EB%A6%AC%EA%B7%9C%EC%A0%95"));
-                startActivity(myIntent);
-            }
-        });
-
-        infor3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(), com.dj.agent.infor3.class);
-                startActivity(i);
-            }
-        });
-
         infor4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), com.dj.agent.infor4.class);
                 startActivity(i);
+                mInterstitialAd.setAdListener(new AdListener() {
+                    public void onAdLoaded(){
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+                            Log.d("asd", "The interstitial wasn't loaded yet.");
+                        }
+                    }
+                });
             }
         });
 

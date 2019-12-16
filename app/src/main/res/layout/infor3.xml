@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="혐오업무거부"
-        android:textSize="50dp"/>
+        android:text="혐오업무 규정"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+
+    <TextView
+    android:id="@+id/textView9"
+    android:layout_width="310dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="30dp"
+    android:text="제15조(복무분야별 임무)\n복무기관의 장은 주임무 수행에 지장이 없는 범위에서 부수임무를 부여할 수 있다. 다만, 혐오 및 사고위험분야, 임무와 관련이 없는 노무분야, 풍속사범 단속 등 근무 부적격분야의 인력 활용은 제한한다. "
+    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+    android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="개정 2015.12.24\n \n규정 15조 2항엔 '혐오 및 사고위험분야' 등 근무 부적격 분야의 인력 활용은 제한한다고 고지가 되어있다. 규정에서는 사회복무요원이 근무지에서 혐오감을 느끼거나 사고에 대한 위험을 느낄 때 업무를 '거부할 수 있다'가 아닌 '인력 활용' 자체를 제한 하고 있다. 따라서 혐오업무에 대한 분쟁중 가장 빈번히 발생하는 특수학교, 요양원 등에서의 장애인 신변처리 / 소방서 등에서의 시체처리 지원 등의 업무는 규정상으로 부과 받을 수 '없는' 업무의 범위인 것이다. 만약 본인 근무지의 담당자나 기관장이 업무수행을 강제할 경우 국민 신문고나 인권위를 통해 문제 해결방법을 찾아보는 것이 좋다. "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="15dp" />
 </LinearLayout>

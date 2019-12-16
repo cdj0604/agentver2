@@ -86,15 +86,15 @@ public class Menu_1 extends Fragment {
         int d = 0;
         Log.d("계급/달수차이", String.valueOf(a));
         if (a<3) {
-            testtext.setText("이등병");
+            testtext.setText("이병");
             d = 306100;
         }
         else if (a < 10){
-            testtext.setText("일등병");
+            testtext.setText("일병");
             d = 331300;
         }
         else if (a < 18){
-            testtext.setText("상등병");
+            testtext.setText("상병");
             d = 366200;
         }
         else {
