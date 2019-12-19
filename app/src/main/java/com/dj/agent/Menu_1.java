@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -54,11 +55,14 @@ public class Menu_1 extends Fragment {
         Log.d("현재시간", String.valueOf(fdate));
         if (fdate > 0600 && fdate <1059){
             menu1_1.setImageResource(R.drawable.menu1_1);
+            Picasso.with(getActivity()).load(R.drawable.menu1_1).into(menu1_1);
         }
         else if (fdate > 1100 && fdate <1759){
             menu1_1.setImageResource(R.drawable.menu1_3);
+            Picasso.with(getActivity()).load(R.drawable.menu1_3).into(menu1_1);
         }
         else menu1_1.setImageResource(R.drawable.menu1_2);
+        Picasso.with(getActivity()).load(R.drawable.menu1_2).into(menu1_1);
 
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();

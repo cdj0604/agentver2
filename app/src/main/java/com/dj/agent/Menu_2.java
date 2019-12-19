@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -56,11 +57,16 @@ public class Menu_2 extends Fragment {
         Log.d("현재시간", String.valueOf(fdate));
         if (fdate > 0600 && fdate <1059){
             imageView.setImageResource(R.drawable.menu2_1);
+            Picasso.with(getActivity()).load(R.drawable.menu2_1).into(imageView);
+
         }
         else if (fdate > 1100 && fdate <1759){
-            imageView.setImageResource(R.drawable.menu2_3);
+            Picasso.with(getActivity()).load(R.drawable.menu2_2).into(imageView);
+
         }
-        else imageView.setImageResource(R.drawable.menu2_2);
+        else
+            Picasso.with(getActivity()).load(R.drawable.menu2_3).into(imageView);
+
 
 
         sum.setOnClickListener(new View.OnClickListener() {

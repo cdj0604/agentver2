@@ -1,5 +1,6 @@
 package com.dj.agent;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,14 +15,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -41,6 +47,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment;
     private AdView mAdView;
+    private RewardedVideoAd mRewardedVideoAd;
     private BackPressCloseHandler backPressCloseHandler;
     private int Year , Month;
 
@@ -50,6 +57,49 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //리워드광고
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
+            @Override
+            public void onRewardedVideoAdLoaded() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdOpened() {
+            }
+
+            @Override
+            public void onRewardedVideoStarted() {
+            }
+
+            @Override
+            public void onRewardedVideoAdClosed() {
+                Toast.makeText(getApplicationContext(), "광고시청 해주셔서 감사합니다♥", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRewarded(RewardItem rewardItem) {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdLeftApplication() {
+            }
+
+            @Override
+            public void onRewardedVideoAdFailedToLoad(int i) {
+
+            }
+
+            @Override
+            public void onRewardedVideoCompleted() {
+
+            }
+        });
+
+        loadRewardedVideoAd();
+
         ImageView menu1_1 = (ImageView)findViewById(R.id.imageView);
         TextView printstart = (TextView)findViewById(R.id.start) ;
         TextView bm = (TextView)findViewById(R.id.bm); //소집해제날짜 출력
@@ -58,7 +108,6 @@ public class MainActivity extends AppCompatActivity
         TextView textview = (TextView)findViewById(R.id.textview);
         TextView textViewp = (TextView)findViewById(R.id.TextViewp);
         TextView testtext = (TextView)findViewById(R.id.testtext);
-
 
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();
@@ -78,12 +127,13 @@ public class MainActivity extends AppCompatActivity
         int fdate = Integer.parseInt(formatDate);
         Log.d("현재시간", String.valueOf(fdate));
         if (fdate > 0600 && fdate <1059){
-            menu1_1.setImageResource(R.drawable.menu1_1);
+            Picasso.with(this).load(R.drawable.menu1_1).into(menu1_1);
         }
         else if (fdate > 1100 && fdate <1759){
-            menu1_1.setImageResource(R.drawable.menu1_3);
+            Picasso.with(this).load(R.drawable.menu1_3).into(menu1_1);
         }
-        else menu1_1.setImageResource(R.drawable.menu1_2);
+
+        Picasso.with(this).load(R.drawable.menu1_2).into(menu1_1);
         /*String userid = getArguments().getString("userid");
         TextView tv = (TextView) view.findViewById(R.id.firstmainText);
         tv.setText(userid);*/
@@ -123,7 +173,7 @@ public class MainActivity extends AppCompatActivity
         }
         editor.putInt("money", d);
         editor.putString("Level",c);
-        editor.commit();
+        editor.apply();
         int startday = Integer.parseInt(start); //소집날 int값
 
         String finish = pref.getString("finishD", String.valueOf(0));
@@ -131,6 +181,7 @@ public class MainActivity extends AppCompatActivity
         int dday = finishday-r1;
         String Stringdday = Integer.toString(dday);
         ddaytext.setText(Stringdday);
+
 
         String printfinish = pref.getString("finishday", String.valueOf(0)); //출력될소집해제 날짜값 2021.2.22
         bm.setText(printfinish);
@@ -275,6 +326,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.menu_6) {
             send();
         }
+        else if (id ==R.id.menu_7) {
+            if (mRewardedVideoAd.isLoaded()) {
+                mRewardedVideoAd.show();
+            }
+        }
 
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -323,5 +379,8 @@ public class MainActivity extends AppCompatActivity
                 });
         AlertDialog dialog = builder.create();    // 알림창 객체 생성
         dialog.show();
+    }
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd(getResources().getString(R.string.video_id), new AdRequest.Builder().build());
     }
 }

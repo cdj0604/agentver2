@@ -191,7 +191,7 @@
 
             ads:adSize="BANNER"
 
-            ads:adUnitId="ca-app-pub-9564860830680500/7982589118">
+            ads:adUnitId="@string/banner_ad_unit_id">
 
 
 

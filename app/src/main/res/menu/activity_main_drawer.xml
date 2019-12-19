@@ -10,7 +10,7 @@
                 <item
                     android:id="@+id/menu_1"
                     android:icon="@drawable/menu1"
-                    android:title="홈으로"
+                    android:title="홈"
                     ></item>
             </menu>
         </item>
@@ -45,7 +45,12 @@
             <item
                 android:id="@+id/menu_6"
                 android:icon="@drawable/menu6"
-                android:title="피드백" />
+                android:title="피드백하기" />
+
+            <item
+                android:id="@+id/menu_7"
+                android:icon="@drawable/menu7"
+                android:title="무료후원하기" />
         </menu>
     </item>
 

@@ -79,25 +79,16 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
         <com.google.android.gms.ads.AdView
-
             xmlns:ads="http://schemas.android.com/apk/res-auto"
-
             android:id="@+id/adView"
-
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
-
             android:layout_centerHorizontal="true"
-
             android:layout_alignParentBottom="true"
-
             android:layout_gravity="bottom"
             android:layout_marginLeft="50dp"
-
             ads:adSize="BANNER"
-
-            ads:adUnitId="ca-app-pub-9564860830680500/7982589118">
+            ads:adUnitId="@string/banner_ad_unit_id">
 
 
 

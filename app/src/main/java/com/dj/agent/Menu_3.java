@@ -18,6 +18,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -53,11 +54,16 @@ public class Menu_3 extends Fragment {
         Log.d("현재시간", String.valueOf(fdate));
         if (fdate > 0600 && fdate <1059){
             imageView2.setImageResource(R.drawable.menu3_1);
+            Picasso.with(getActivity()).load(R.drawable.menu3_1).into(imageView2);
+
         }
         else if (fdate > 1100 && fdate <1759){
-            imageView2.setImageResource(R.drawable.menu3_3);
+            imageView2.setImageResource(R.drawable.menu3_2);
+            Picasso.with(getActivity()).load(R.drawable.menu3_2).into(imageView2);
+
         }
         else imageView2.setImageResource(R.drawable.menu3_2);
+        Picasso.with(getActivity()).load(R.drawable.menu3_2).into(imageView2);
 
 
         mInterstitialAd.setAdListener(new AdListener(){
