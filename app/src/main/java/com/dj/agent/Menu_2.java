@@ -56,16 +56,18 @@ public class Menu_2 extends Fragment {
         int fdate = Integer.parseInt(formatDate);
         Log.d("현재시간", String.valueOf(fdate));
         if (fdate > 0600 && fdate <1059){
-            imageView.setImageResource(R.drawable.menu2_1);
+            //imageView.setImageResource(R.drawable.menu2_1);
             Picasso.with(getActivity()).load(R.drawable.menu2_1).into(imageView);
 
         }
         else if (fdate > 1100 && fdate <1759){
-            Picasso.with(getActivity()).load(R.drawable.menu2_2).into(imageView);
+            //imageView.setImageResource(R.drawable.menu2_3);
+            Picasso.with(getActivity()).load(R.drawable.menu2_3).into(imageView);
 
         }
         else
-            Picasso.with(getActivity()).load(R.drawable.menu2_3).into(imageView);
+            //imageView.setImageResource(R.drawable.menu2_2);
+            Picasso.with(getActivity()).load(R.drawable.menu2_2).into(imageView);
 
 
 

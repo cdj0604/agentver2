@@ -17,7 +17,6 @@
             android:layout_marginTop="150dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:fontFamily="@font/fff"
             android:text="1.소집 날짜 입력"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="30dp"

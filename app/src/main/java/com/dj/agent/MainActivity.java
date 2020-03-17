@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity
         else if (fdate > 1100 && fdate <1759){
             Picasso.with(this).load(R.drawable.menu1_3).into(menu1_1);
         }
-
+        else
         Picasso.with(this).load(R.drawable.menu1_2).into(menu1_1);
         /*String userid = getArguments().getString("userid");
         TextView tv = (TextView) view.findViewById(R.id.firstmainText);
@@ -148,27 +148,27 @@ public class MainActivity extends AppCompatActivity
         int d = 0;
         String c = null;
         Log.d("계급/달수차이", String.valueOf(a));
-        if (a<3) {
+        if (a<2) {
             testtext.setText("이병");
-            d = 306100;
-            c = "306100";
+            d = 408100;
+            c = "408100";
         }
-        else if (a < 10){
+        else if (a < 9){
             testtext.setText("일병");
-            d = 331300;
-            c = "331300";
+            d = 441600;
+            c = "441600";
 
         }
-        else if (a < 18){
+        else if (a < 16){
             testtext.setText("상병");
-            d = 366200;
-            c = "366200";
+            d = 488200;
+            c = "488200";
 
         }
-        else if(a>=18){
+        else if(a>=16){
             testtext.setText("병장");
-            d = 405700;
-            c = "405700";
+            d = 540900;
+            c = "540900";
 
         }
         editor.putInt("money", d);

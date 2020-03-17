@@ -52,16 +52,19 @@ public class Menu_1 extends Fragment {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmm");
         String formatDate = simpleDateFormat.format(date);
         int fdate = Integer.parseInt(formatDate);
-        Log.d("현재시간", String.valueOf(fdate));
+        Log.d("현재시간long", formatDate);
+        Log.d("현재시간int", String.valueOf(fdate));
+
         if (fdate > 0600 && fdate <1059){
-            menu1_1.setImageResource(R.drawable.menu1_1);
+            //menu1_1.setImageResource(R.drawable.menu1_1);
             Picasso.with(getActivity()).load(R.drawable.menu1_1).into(menu1_1);
         }
         else if (fdate > 1100 && fdate <1759){
-            menu1_1.setImageResource(R.drawable.menu1_3);
+            //menu1_1.setImageResource(R.drawable.menu1_3);
             Picasso.with(getActivity()).load(R.drawable.menu1_3).into(menu1_1);
         }
-        else menu1_1.setImageResource(R.drawable.menu1_2);
+        else
+            //menu1_1.setImageResource(R.drawable.menu1_2);
         Picasso.with(getActivity()).load(R.drawable.menu1_2).into(menu1_1);
 
         /* 오늘 날짜 구하기 */
@@ -89,21 +92,21 @@ public class Menu_1 extends Fragment {
         int a = todayLevel-startLevel;
         int d = 0;
         Log.d("계급/달수차이", String.valueOf(a));
-        if (a<3) {
+        if (a<2) {
             testtext.setText("이병");
-            d = 306100;
+            d = 408100;
         }
-        else if (a < 10){
+        else if (a < 9){
             testtext.setText("일병");
-            d = 331300;
+            d = 441600;
         }
-        else if (a < 18){
+        else if (a < 16){
             testtext.setText("상병");
-            d = 366200;
+            d = 488200;
         }
         else {
             testtext.setText("병장");
-            d = 405700;
+            d = 540900;
         }
         int startday = Integer.parseInt(start); //소집날 int값
 
