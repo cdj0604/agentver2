@@ -153,19 +153,18 @@ public class MainActivity extends AppCompatActivity
             d = 408100;
             c = "408100";
         }
-        else if (a < 9){
+        else if (a < 7){
             testtext.setText("일병");
             d = 441600;
             c = "441600";
 
         }
-        else if (a < 16){
+        else if (a < 14){
             testtext.setText("상병");
             d = 488200;
             c = "488200";
-
         }
-        else if(a>=16){
+        else{
             testtext.setText("병장");
             d = 540900;
             c = "540900";

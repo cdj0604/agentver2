@@ -96,11 +96,11 @@ public class Menu_1 extends Fragment {
             testtext.setText("이병");
             d = 408100;
         }
-        else if (a < 9){
+        else if (a < 7){
             testtext.setText("일병");
             d = 441600;
         }
-        else if (a < 16){
+        else if (a < 14){
             testtext.setText("상병");
             d = 488200;
         }

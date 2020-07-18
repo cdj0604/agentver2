@@ -16,6 +16,8 @@
         </item>
         <item android:title="FUNCTION">
             <menu>
+
+
                 <item
                     android:id="@+id/menu_2"
                     android:icon="@drawable/menu2"
