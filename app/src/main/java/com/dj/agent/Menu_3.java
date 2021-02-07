@@ -100,7 +100,7 @@ public class Menu_3 extends Fragment {
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("월급,진급일 정보")        // 제목 설정
-                        .setMessage("2019년도 군인월급 \n 이병 : 306,100 원\n 일병 : 331,300 원\n 상병 : 366,200 원\n 병장 : 405,700 원\n \n2020년도 군인 월급\n 이병 : 408,100 원\n 일병 : 441,600 원\n 상병 : 488,200 원\n 병장 : 540,900 원 \n \n     진급표\n이병 : 소집일~2개월\n일병 : 3개월 ~ 8개월\n상병 : 9개월 ~ 14개월\n병장 : 15개월 ~")        // 메세지 설정
+                        .setMessage("2019년도 군인월급 \n 이병 : 459,100 원\n 일병 : 496,900 원\n 상병 : 549,200 원\n 병장 : 608,500 원\n \n2020년도 군인 월급\n 이병 : 408,100 원\n 일병 : 441,600 원\n 상병 : 488,200 원\n 병장 : 540,900 원 \n \n     진급표\n이병 : 소집일~2개월\n일병 : 3개월 ~ 8개월\n상병 : 9개월 ~ 14개월\n병장 : 15개월 ~")        // 메세지 설정
                         .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
                         .setNegativeButton("확인", new DialogInterface.OnClickListener(){
                             // 취소 버튼 클릭시 설정

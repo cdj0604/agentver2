@@ -150,24 +150,24 @@ public class MainActivity extends AppCompatActivity
         Log.d("계급/달수차이", String.valueOf(a));
         if (a<2) {
             testtext.setText("이병");
-            d = 408100;
-            c = "408100";
+            d = 459100;
+            c = "459100";
         }
         else if (a < 7){
             testtext.setText("일병");
-            d = 441600;
-            c = "441600";
+            d = 496900;
+            c = "496900";
 
         }
         else if (a < 14){
             testtext.setText("상병");
-            d = 488200;
-            c = "488200";
+            d = 549200;
+            c = "549200";
         }
         else{
             testtext.setText("병장");
-            d = 540900;
-            c = "540900";
+            d = 608500;
+            c = "608500";
 
         }
         editor.putInt("money", d);
